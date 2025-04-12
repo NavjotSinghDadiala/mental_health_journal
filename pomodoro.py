@@ -60,8 +60,14 @@ window.config(padx=100, pady=50, bg="#f7f5dd")
 title_label = tk.Label(text="Pomodoro Timer", fg="green", bg="#f7f5dd", font=(FONT_NAME, 40, "bold"))
 title_label.grid(column=1, row=0)
 
+try:
+    tomato_img = tk.PhotoImage(file="tomato.png")  # Try to load from current directory
+except:
+    # Create a simple colored circle as fallback
+    tomato_img = tk.PhotoImage(width=100, height=100)
+    tomato_img.put("#FF0000", to=(0, 0, 100, 100))  # Red circle
+
 canvas = tk.Canvas(width=200, height=224, bg="#f7f5dd", highlightthickness=0)
-tomato_img = tk.PhotoImage(file="C:\\Users\\Aadarsh\\Desktop\\MADHAV\\Mini project\\internship\\hackathon\\tomato.png")  # Optional: Add an image named 'tomato.png' in the same directory
 canvas.create_image(100, 112, image=tomato_img)
 timer_text = canvas.create_text(100, 130, text="00:00", fill="black", font=(FONT_NAME, 35, "bold"))
 canvas.grid(column=1, row=1)
