@@ -1,0 +1,7 @@
+services:
+  - type: web
+    name: akshar
+    env: python
+    buildCommand: "./build.sh"
+    startCommand: "python app.py"
+    pythonVersion: 3.10
